@@ -19,4 +19,18 @@ public class ListTests {
 //        System.out.println(head);
         assertTrue(solution.hasCycle(head), "[1, 2, 3], pos = 1 has cycle");
     }
+
+    @Test
+    @DisplayName("[1, 2, 3], pos = 1, cycle val = 2")
+    void cycle_detect_01() {
+        Solution solution = new Solution();
+        ListNode node2 = new ListNode(3);
+        ListNode node1 = new ListNode(2);
+        node1.next = node2;
+        ListNode head = new ListNode(1);
+        head.next = node1;
+        node2.next = node1;
+        assertEquals(2, solution.detectCycle(head).val, "[1, 2, 3], pos = 1, cycle val = 2");
+    }
+
 }
